@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>All-in-One AI Tools</title>
+<style>
+body{font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;margin:0;padding:20px}
+h1,h2,h3{color:#fff} button{padding:12px 18px;border-radius:10px;border:none;font-weight:700;cursor:pointer;margin:5px} textarea,input,select{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid #334155;background:#020617;color:#e5e7eb} pre{background:#020617;padding:12px;border-radius:8px;white-space:pre-wrap;word-wrap:break-word;}
+</style>
+</head>
+<body>
+<h1>All-in-One AI Generator</h1>
+<p>Resume • CV • Cover Letter • Essay • Logo • Images — one platform</p>
+
+<button onclick="setTool('resume')">AI Resume / CV</button>
+<button onclick="setTool('cover')">Cover Letter</button>
+<button onclick="setTool('essay')">Essay / Assignment</button>
+<button onclick="setTool('logo')">Logo Ideas</button>
+<button onclick="setTool('image')">Image Generator</button>
+
+<h2 id="toolTitle">AI Resume / CV Generator</h2>
+<label>Details / Prompt</label>
+<textarea id="details" rows="6" placeholder="Paste job details, topic, idea, description..."></textarea>
+<label>Tone / Style</label>
+<select id="tone">
+<option>Professional</option>
+<option>Creative</option>
+<option>Formal</option>
+<option>Simple</option>
+</select>
+<button onclick="generate()">Generate with AI</button>
+<pre id="out"></pre>
+
+<script>
+let currentTool='resume';
+function setTool(t){
+  currentTool=t;
+  const titles={resume:'AI Resume / CV Generator',cover:'AI Cover Letter Generator',essay:'AI Essay / Assignment Writer',logo:'AI Logo Ideas Generator',image:'AI Image Generator'};
+  document.getElementById('toolTitle').textContent=titles[t];
+  document.getElementById('out').textContent='';
+}
+function generate(){
+  const d=document.getElementById('details').value;
+  const tone=document.getElementById('tone').value;
+  let prompt='';
+  if(currentTool==='resume') prompt=`Create a professional resume/CV. Tone: ${tone}. Details: ${d}`;
+  if(currentTool==='cover') prompt=`Write a cover letter. Tone: ${tone}. Details: ${d}`;
+  if(currentTool==='essay') prompt=`Write an essay/assignment. Tone: ${tone}. Details: ${d}`;
+  if(currentTool==='logo') prompt=`Generate logo ideas and brand names. Tone: ${tone}. Details: ${d}`;
+  if(currentTool==='image') prompt=`Generate an image description for AI image generation. Style: ${tone}. Details: ${d}`;
+  document.getElementById('out').textContent='AI PROMPT:\n'+prompt;
+}
+</script>
+</body>
+</html>
