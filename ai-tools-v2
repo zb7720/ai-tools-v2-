@@ -1,0 +1,15 @@
+ai-tools-v2/
+│
+├─ index.html                ← Home page + AI Generator (Resume, Cover Letter, Essay, Logo, Image)
+├─ blog-resume.html          ← Blog page: AI Resume Maker
+├─ blog-coverletter.html     ← Blog page: AI Cover Letter Generator
+├─ blog-essay.html           ← Blog page: AI Essay / Assignment
+├─ blog-logo.html            ← Blog page: AI Logo Ideas Generator
+├─ blog-image.html           ← Blog page: AI Image Generator
+│
+├─ /api/                     ← Backend functions (serverless)
+│    ├─ generate.js          ← OpenAI API call
+│    └─ stripeCheckout.js    ← Stripe payment (optional)
+│
+└─ /css/
+     └─ style.css            ← Optional, common CSS for all pages
